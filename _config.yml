@@ -212,17 +212,6 @@ collections:
 # Defaults (只保留 pages 和 posts，移除了其他栏目的配置)
 # ---------------------------
 defaults:
-  # _posts (博客设置，如果你完全不想要博客，可以把这一段也删掉)
-  - scope:
-      path: ""
-      type: posts
-    values:
-      layout: single
-      author_profile: true
-      read_time: true
-      comments: true
-      share: true
-      related: true
   # _pages (个人简介页面，必须保留)
   - scope:
       path: ""
