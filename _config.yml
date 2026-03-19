@@ -24,7 +24,7 @@ repository               : "Thatsll/thatsll.github.io"
 # ---------------------------
 author:
   # Biographic information
-  avatar           : "profile.png"  # 确保你的 images 文件夹里有 profile.png 图片
+  avatar           : "profile.jpg"  # 确保你的 images 文件夹里有 profile.png 图片
   name             : "Haoran Yang"
   pronouns         : 
   bio              : "Information"
