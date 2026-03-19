@@ -9,45 +9,167 @@
 # ---------------------------
 # Basic Site Settings
 # ---------------------------
-# ---------------------------
-# 1. 基础站点设置 (Basic Site Settings)
-# ---------------------------
-locale                   : "zh-CN"                # 改为中文环境
-title                    : "Haoran Yang"           # 网站标题
+locale                   : "en-US"
+site_theme               : "air" # 主题颜色，可选: "default", "air", "sunrise", "mint", "dirt", "contrast"
+title                    : "Haoran Yang"
 title_separator          : "-"
 name                     : &name "Haoran Yang"
-description              : "Haoran Yang's Personal Website"
+description              : "Haoran Yang's academic portfolio"
 url                      : "https://thatsll.github.io" 
 baseurl                  : "" 
 repository               : "Thatsll/thatsll.github.io"
 
 # ---------------------------
-# 2. 作者信息 (侧边栏显示内容)
+# Site Author (Sidebar Info)
 # ---------------------------
 author:
-  avatar           : "profile.jpg"                 # 确保 images/profile.jpg 存在
+  # Biographic information
+  avatar           : "profile.jpg"  # 确保你的 images 文件夹里有 profile.png 图片
   name             : "Haoran Yang"
-  bio              : "Nanjing University Student"  # 简短自我介绍
-  location         : "Nanjing, China"
+  pronouns         : 
+  bio              : "Information"
+  location         : "Nanjing, Jiangsu Province, China"
   employer         : "Nanjing University"
-  email            : "13577031790@163.com"
-  
-  # 只保留你真正在用的链接，没有填的可以直接删掉或留空
+  email            : "13577031790@163.com" 
+
+  # Academic websites (已清空示例链接，填入你的真实链接即可显示)
+  academia         : 
+  arxiv            : 
+  googlescholar    : 
+  inspire-hep      : 
+  impactstory      : 
+  orcid            : 
+  semantic         : 
+  ssrn             : 
+  pubmed           : 
+  researchgate     : 
+  scopus           : 
+  zotero           : 
+
+  # Repositories
   github           : "Thatsll"
-  # twitter        : 
-  # linkedin       : 
-  # weibo          : 
+  kaggle           : 
+
+  # Social media (只保留了可能用到的，其他已清空)
+  bluesky          : 
+  facebook         : 
+  instagram        : 
+  linkedin         : 
+  twitter          : 
+  weibo            : 
+  zhihu            : 
+  # 其他未列出的社交媒体默认不显示
 
 # ---------------------------
-# 3. 构建与阅读设置 (Build & Read Settings)
+# Site Settings
 # ---------------------------
-markdown             : kramdown
-highlighter          : rouge
-lsi                  : false
-excerpt_separator    : "\n\n"
-incremental          : false
+teaser                   :  
+breadcrumbs              : false 
+words_per_minute         : 160
+future                   : true
+read_more                : "disabled"
+talkmap_link             : false
 
-# Kramdown 配置 (保持默认即可)
+comments:
+  provider               : false # 默认关闭评论
+
+staticman:
+  allowedFields          : ['name', 'email', 'url', 'message']
+  branch                 : "gh-pages"
+  commitMessage          : "New comment."
+  filename               : comment-{@timestamp}
+  format                 : "yml"
+  moderation             : true
+  path                   : "_data/comments/{options.slug}"
+  requiredFields         : ['name', 'email', 'message']
+  transforms:
+    email                : "md5"
+  generatedFields:
+    date:
+      type               : "date"
+      options:
+        format           : "iso8601"
+
+atom_feed:
+  hide                   : false
+  path                   : 
+
+# SEO Related (留空即可)
+google_site_verification :
+bing_site_verification   :
+alexa_site_verification  :
+yandex_site_verification :
+
+# Social Sharing (留空)
+twitter:
+  username               : 
+facebook:
+  username               :
+  app_id                 :
+  publisher              :
+og_image                 : 
+og_description           : 
+social:
+  type                   : 
+  name                   : 
+  links                  : 
+
+# Analytics (默认关闭)
+analytics:
+  provider               : "false"
+  google:
+    tracking_id          : 
+
+# ---------------------------
+# Reading Files
+# ---------------------------
+include:
+  - .htaccess
+  - _pages
+  - files
+exclude:
+  - "*.sublime-project"
+  - "*.sublime-workspace"
+  - .asset-cache
+  - .bundle
+  - .github
+  - .jekyll-assets-cache
+  - .sass-cache
+  - assets/js/_main.js
+  - assets/js/plugins
+  - assets/js/vendor
+  - CHANGELOG
+  - Capfile
+  - config
+  - Dockerfile
+  - Gemfile
+  - Gruntfile.js
+  - gulpfile.js
+  - LICENSE
+  - local
+  - log
+  - node_modules
+  - package.json*
+  - Rakefile
+  - README
+  - tmp
+  - vendor
+keep_files:
+  - .git
+  - .svn
+encoding: "utf-8"
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+
+# ---------------------------
+# Conversion
+# ---------------------------
+markdown: kramdown
+highlighter: rouge
+lsi: false
+excerpt_separator: "\n\n"
+incremental: false
+
+# Markdown Processing
 kramdown:
   input: GFM
   hard_wrap: false
@@ -58,70 +180,57 @@ kramdown:
   smart_quotes: lsquo,rsquo,ldquo,rdquo
   enable_coderay: false
 
-# ---------------------------
-# 4. 集合设置 (Collections) - 关键简化！
-# ---------------------------
-# 既然删除了所有功能页，这里可以全部注释掉或设为不输出
-collections:
-  teaching:
-    output: false
-  publications:
-    output: false
-  portfolio:
-    output: false
-  talks:
-    output: false
-
-# ---------------------------
-# 5. 默认布局 (Defaults)
-# ---------------------------
 defaults:
+  # _pages (个人简介页面，必须保留)
   - scope:
       path: ""
       type: pages
     values:
       layout: single
       author_profile: true
-      read_time: false     # 单页不需要显示阅读时间
-      comments: false      # 关闭评论
-      share: false         # 关闭分享按钮
-      related_posts: false # 关闭相关文章
 
 # ---------------------------
-# 6. 插件 (Plugins) - 仅保留最基础的
+# Sass/SCSS
 # ---------------------------
-# GitHub Pages 自动支持这些，无需额外安装
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# ---------------------------
+# Outputting
+# ---------------------------
+permalink: /:categories/:title/
+timezone: Etc/UTC
+
+# ---------------------------
+# Plugins
+# ---------------------------
 plugins:
   - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
   - jekyll-sitemap
   - jekyll-redirect-from
   - jemoji
 
-# ---------------------------
-# 7. 排除文件 (Exclude) - 保持默认，防止上传无关文件
-# ---------------------------
-exclude:
-  - .sass-cache/
-  - .jekyll-cache/
-  - gemfiles/
-  - Gemfile
-  - Gemfile.lock
-  - node_modules/
-  - vendor/bundle/
-  - vendor/cache/
-  - vendor/gems/
-  - vendor/ruby/
-  - "*.sublime-project"
-  - "*.sublime-workspace"
-  - .gitignore
-  - README.md
-  - LICENSE
+whitelist:
+  - jekyll-feed
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-redirect-from
+  - jemoji
 
-# ---------------------------
-# 8. 其他杂项
-# ---------------------------
-timezone: Asia/Shanghai
-permalink: /:title/
-sass:
-  sass_dir: _sass
-  style: compressed
+# Archives
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
+# HTML Compression
+compress_html:
+  clippings: all
+  ignore:
+    envs: development
